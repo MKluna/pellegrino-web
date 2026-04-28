@@ -1,0 +1,15 @@
+{
+  "name": "Riñonera Compact",
+  "category": "RIÑONERAS",
+  "price": 32000,
+  "description": "Riñonera minimalista en cuero genuino liso. Compartimento principal con cierre y bolsillo frontal. La correa ajustable permite usarla en cintura, cruzada o al hombro.",
+  "shortDesc": "Cuero genuino liso, versátil 3 usos",
+  "images": [
+    "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=700&q=80&auto=format",
+    "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=700&q=80&auto=format"
+  ],
+  "featured": false,
+  "material": "Cuero genuino liso",
+  "colors": ["Negro", "Marrón"],
+  "inStock": true
+}

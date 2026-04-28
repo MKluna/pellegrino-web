@@ -1,0 +1,38 @@
+---
+import { Image } from 'astro:assets';
+import type { Product } from '../../data/products';
+import { formatPrice } from '../../data/products';
+
+interface Props {
+  product: Product;
+}
+const { product } = Astro.props;
+---
+<article class="group">
+  <a href={`/productos/${product.slug}`} class="block">
+    <div class="relative overflow-hidden aspect-[3/4] bg-charcoal">
+      <Image
+        src={product.images[0]}
+        alt={product.name}
+        width={600}
+        height={800}
+        loading="lazy"
+        widths={[300, 600, 900]}
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+      />
+      {!product.inStock && (
+        <div class="absolute inset-0 bg-obsidian/60 flex items-center justify-center">
+          <span class="text-parchment text-xs tracking-widest uppercase">Sin stock</span>
+        </div>
+      )}
+    </div>
+    <div class="pt-4 pb-2">
+      <p class="text-gold text-xs tracking-[0.2em] uppercase mb-1">{product.category}</p>
+      <h3 class="font-serif text-lg text-cream leading-snug group-hover:text-gold transition-colors duration-200">
+        {product.name}
+      </h3>
+      <p class="text-parchment text-sm mt-1">{formatPrice(product.price)}</p>
+    </div>
+  </a>
+</article>

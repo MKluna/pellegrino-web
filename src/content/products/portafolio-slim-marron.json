@@ -1,0 +1,15 @@
+{
+  "name": "Portafolio Slim",
+  "category": "PORTAFOLIOS",
+  "price": 98000,
+  "description": "Perfil delgado para el profesional moderno. Espacio para documentos A4 y tablet de 11\", más un bolsillo trasero de acceso rápido. Cuero curtido al vegetal con acabado liso satinado.",
+  "shortDesc": "Perfil delgado, cuero vegetal satinado",
+  "images": [
+    "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=700&q=80&fit=crop&crop=top&auto=format",
+    "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=700&q=80&fit=crop&crop=bottom&auto=format"
+  ],
+  "featured": false,
+  "material": "Cuero vegetal satinado",
+  "colors": ["Marrón", "Cognac"],
+  "inStock": true
+}

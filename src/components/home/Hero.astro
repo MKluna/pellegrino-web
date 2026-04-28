@@ -1,0 +1,93 @@
+---
+import { Image } from 'astro:assets';
+---
+<section class="relative h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background image (parallax target) -->
+  <div class="absolute inset-0 will-change-transform" data-parallax-hero>
+    <Image
+      src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=1920&q=85&fit=crop&crop=center&auto=format"
+      alt="Marroquinería de lujo"
+      width={1920}
+      height={1080}
+      widths={[768, 1280, 1920]}
+      sizes="100vw"
+      loading="eager"
+      class="w-full h-full object-cover scale-110 hero-enter"
+    />
+  </div>
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-obsidian/65"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center px-6 max-w-3xl mx-auto">
+    <p class="hero-enter hero-enter-1 text-gold text-xs tracking-[0.4em] uppercase mb-6">
+      Artesanía Argentina
+    </p>
+    <h1 class="hero-enter hero-enter-2 font-serif text-6xl md:text-8xl text-cream font-light leading-none tracking-wide mb-6">
+      PELLEGRINO
+    </h1>
+    <div class="hero-enter hero-enter-3 w-12 h-px bg-gold mx-auto mb-6"></div>
+    <p class="hero-enter hero-enter-4 text-parchment text-base md:text-lg font-light leading-relaxed tracking-wide mb-10">
+      Cuero genuino. Diseño atemporal.<br class="hidden md:block" />
+      Cada pieza, elaborada a mano en Argentina.
+    </p>
+    <a
+      href="/catalogo"
+      class="hero-enter hero-enter-5 inline-block px-10 py-3.5 border border-gold text-gold text-xs tracking-[0.25em] uppercase hover:bg-gold hover:text-obsidian transition-all duration-300"
+    >
+      Ver Colección
+    </a>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="hero-enter hero-enter-5 absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-parchment/40">
+    <span class="text-xs tracking-widest uppercase">Scroll</span>
+    <div class="w-px h-8 bg-parchment/20"></div>
+  </div>
+</section>
+
+<script>
+  // Hero parallax — background image moves slower than content
+  function setupHeroParallax() {
+    const target = document.querySelector<HTMLElement>('[data-parallax-hero]');
+    if (!target) return;
+
+    const SPEED = 0.35;            // 0 = static, 1 = same as scroll
+    const VIEWPORT_HEIGHT = window.innerHeight;
+    let ticking = false;
+
+    function update() {
+      const scrollY = window.scrollY;
+      // Only animate while the hero is potentially visible (slight buffer)
+      if (scrollY < VIEWPORT_HEIGHT * 1.2 && target) {
+        target.style.transform = `translate3d(0, ${scrollY * SPEED}px, 0)`;
+      }
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    }
+
+    // Initial position (in case page is reloaded mid-scroll)
+    update();
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Cleanup on view transition swap
+    document.addEventListener(
+      'astro:before-swap',
+      () => {
+        window.removeEventListener('scroll', onScroll);
+      },
+      { once: true }
+    );
+  }
+
+  setupHeroParallax();
+  document.addEventListener('astro:page-load', setupHeroParallax);
+</script>

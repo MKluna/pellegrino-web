@@ -1,0 +1,37 @@
+---
+interface Props {
+  delay?: number;
+  class?: string;
+  as?: keyof HTMLElementTagNameMap;
+}
+const { delay = 0, class: className = '', as: Tag = 'div' } = Astro.props;
+const style = delay ? `transition-delay: ${delay}ms;` : undefined;
+---
+<Tag class={`reveal ${className}`} style={style}>
+  <slot />
+</Tag>
+
+<script>
+  function setup() {
+    const elements = document.querySelectorAll<HTMLElement>('.reveal:not(.is-visible)');
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+  }
+
+  // Run on initial load and after every Astro page navigation (View Transitions)
+  setup();
+  document.addEventListener('astro:page-load', setup);
+</script>

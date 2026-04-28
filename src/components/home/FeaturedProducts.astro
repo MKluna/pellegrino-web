@@ -1,0 +1,42 @@
+---
+import { getFeatured } from '../../data/loader';
+import ProductCard from '../catalog/ProductCard.astro';
+import ScrollReveal from '../ui/ScrollReveal.astro';
+
+const featured = (await getFeatured()).slice(0, 4);
+---
+<section class="py-20 px-6 bg-charcoal/30">
+  <div class="max-w-7xl mx-auto">
+    <ScrollReveal>
+      <div class="flex items-end justify-between mb-12">
+        <div>
+          <p class="text-gold text-xs tracking-[0.3em] uppercase mb-3">Selección</p>
+          <h2 class="font-serif text-4xl md:text-5xl text-cream font-light">Destacados</h2>
+        </div>
+        <a
+          href="/catalogo"
+          class="hidden md:inline-block text-xs text-parchment tracking-widest uppercase border-b border-parchment/30 hover:text-gold hover:border-gold pb-0.5 transition-colors duration-200"
+        >
+          Ver todo →
+        </a>
+      </div>
+    </ScrollReveal>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      {featured.map((product, i) => (
+        <ScrollReveal delay={i * 100}>
+          <ProductCard product={product} />
+        </ScrollReveal>
+      ))}
+    </div>
+
+    <div class="text-center mt-10 md:hidden">
+      <a
+        href="/catalogo"
+        class="text-xs text-gold tracking-widest uppercase border border-gold px-8 py-3 hover:bg-gold hover:text-obsidian transition-all duration-200 inline-block"
+      >
+        Ver catálogo completo
+      </a>
+    </div>
+  </div>
+</section>

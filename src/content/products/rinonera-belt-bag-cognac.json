@@ -1,0 +1,15 @@
+{
+  "name": "Belt Bag",
+  "category": "RIÑONERAS",
+  "price": 42000,
+  "description": "Belt bag de diseño contemporáneo en cuero nappa suave. Formato horizontal con dos compartimentos independientes y herrajes en níquel envejecido. La tendencia street con acabado de lujo.",
+  "shortDesc": "Cuero nappa, herrajes níquel envejecido",
+  "images": [
+    "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=700&q=80&fit=crop&crop=center&auto=format",
+    "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=700&q=80&auto=format"
+  ],
+  "featured": true,
+  "material": "Cuero nappa",
+  "colors": ["Cognac", "Negro", "Arena"],
+  "inStock": true
+}

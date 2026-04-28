@@ -1,0 +1,15 @@
+{
+  "name": "Portafolio Ejecutivo",
+  "category": "PORTAFOLIOS",
+  "price": 125000,
+  "description": "Portafolio de cierre completo en cuero vacuno de alta gama. Interior con organizador de documentos A4, porta-bolígrafos y tarjetero. El cierre perimetral en YKK garantiza la seguridad de su contenido.",
+  "shortDesc": "Cuero vacuno alta gama, cierre perimetral",
+  "images": [
+    "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=700&q=80&fit=crop&crop=top&auto=format",
+    "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=700&q=80&fit=crop&crop=bottom&auto=format"
+  ],
+  "featured": false,
+  "material": "Cuero vacuno alta gama",
+  "colors": ["Negro", "Marrón oscuro"],
+  "inStock": true
+}

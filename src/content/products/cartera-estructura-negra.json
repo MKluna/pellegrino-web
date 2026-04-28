@@ -1,0 +1,15 @@
+{
+  "name": "Cartera Estructura",
+  "category": "CARTERAS",
+  "price": 82000,
+  "description": "Cartera de estructura rígida con marco metálico dorado. Cuero de grano completo en su exterior y forro interior en gamuza. Un accesorio que combina arquitectura y artesanía.",
+  "shortDesc": "Estructura rígida, marco metálico dorado",
+  "images": [
+    "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=700&q=80&fit=crop&crop=right&auto=format",
+    "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=700&q=80&auto=format"
+  ],
+  "featured": false,
+  "material": "Cuero grano completo",
+  "colors": ["Negro", "Verde botella"],
+  "inStock": true
+}

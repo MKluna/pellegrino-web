@@ -1,0 +1,31 @@
+---
+import Layout from '../components/layout/Layout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import CatalogPage from '../components/catalog/CatalogPage';
+import ScrollReveal from '../components/ui/ScrollReveal.astro';
+import { loadProducts } from '../data/loader';
+
+const products = await loadProducts();
+const initialCategory = Astro.url.searchParams.get('categoria') ?? undefined;
+---
+<Layout title="Catálogo — PELLEGRINO" description="Explorar toda la colección de marroquinería PELLEGRINO. Bolsos, billeteras, carteras, mochilas, portafolios y riñoneras en cuero genuino argentino.">
+  <Header />
+  <main class="pt-16">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <!-- Page header -->
+      <ScrollReveal class="mb-14">
+        <p class="text-gold text-xs tracking-[0.3em] uppercase mb-3">Colección completa</p>
+        <h1 class="font-serif text-5xl md:text-6xl text-cream font-light">Catálogo</h1>
+        <div class="w-12 h-px bg-gold mt-6"></div>
+      </ScrollReveal>
+
+      <CatalogPage
+        client:load
+        products={products}
+        initialCategory={initialCategory}
+      />
+    </div>
+  </main>
+  <Footer />
+</Layout>

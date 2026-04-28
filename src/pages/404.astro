@@ -1,0 +1,51 @@
+---
+import Layout from '../components/layout/Layout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+---
+<Layout
+  title="Página no encontrada — PELLEGRINO"
+  description="La página que buscás no existe o fue movida. Volvé al catálogo para descubrir nuestra colección."
+>
+  <Header />
+
+  <main class="pt-16 min-h-screen flex items-center justify-center px-6">
+    <div class="max-w-2xl mx-auto text-center py-24">
+      <p class="hero-enter hero-enter-1 text-gold text-xs tracking-[0.4em] uppercase mb-6">
+        Error 404
+      </p>
+
+      <h1 class="hero-enter hero-enter-2 font-serif text-7xl md:text-9xl text-cream font-light leading-none tracking-wide mb-2">
+        404
+      </h1>
+
+      <p class="hero-enter hero-enter-3 font-serif italic text-xl md:text-2xl text-parchment mb-8">
+        Esta página se perdió en el atelier
+      </p>
+
+      <div class="hero-enter hero-enter-3 w-12 h-px bg-gold mx-auto mb-8"></div>
+
+      <p class="hero-enter hero-enter-4 text-parchment text-sm md:text-base font-light leading-relaxed mb-10 max-w-md mx-auto">
+        La página que buscás no existe, fue movida o nunca llegó a confeccionarse.
+        Te invitamos a volver al inicio o explorar nuestra colección.
+      </p>
+
+      <div class="hero-enter hero-enter-5 flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/"
+          class="inline-block px-10 py-3.5 border border-gold text-gold text-xs tracking-[0.25em] uppercase hover:bg-gold hover:text-obsidian transition-all duration-300"
+        >
+          Volver al inicio
+        </a>
+        <a
+          href="/catalogo"
+          class="inline-block px-10 py-3.5 border border-smoke text-parchment text-xs tracking-[0.25em] uppercase hover:border-gold hover:text-gold transition-all duration-300"
+        >
+          Ver catálogo
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

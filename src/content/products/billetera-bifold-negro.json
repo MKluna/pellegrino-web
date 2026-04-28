@@ -1,0 +1,15 @@
+{
+  "name": "Billetera Bifold",
+  "category": "BILLETERAS",
+  "price": 22000,
+  "description": "Clásico formato bifold en cuero vacuno de primera calidad. Ocho ranuras para tarjetas, compartimento para billetes y bolsillo central. El acabado mate aporta un carácter discreto y elegante.",
+  "shortDesc": "Cuero vacuno, 8 ranuras para tarjetas",
+  "images": [
+    "https://images.unsplash.com/photo-1627123424574-724758594e93?w=700&q=80&fit=crop&crop=center&auto=format",
+    "https://images.unsplash.com/photo-1627123424574-724758594e93?w=700&q=80&auto=format"
+  ],
+  "featured": false,
+  "material": "Cuero vacuno liso",
+  "colors": ["Negro", "Marrón"],
+  "inStock": true
+}

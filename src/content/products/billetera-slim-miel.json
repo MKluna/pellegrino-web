@@ -1,0 +1,15 @@
+{
+  "name": "Billetera Slim",
+  "category": "BILLETERAS",
+  "price": 18500,
+  "description": "Perfil ultra-delgado con capacidad para 6 tarjetas y billetes doblados. El cuero vegetal tanino desarrolla una pátina rica con el tiempo, haciéndola única para cada dueño.",
+  "shortDesc": "Cuero vegetal, perfil ultra-delgado",
+  "images": [
+    "https://images.unsplash.com/photo-1627123424574-724758594e93?w=700&q=80&auto=format",
+    "https://images.unsplash.com/photo-1627123424574-724758594e93?w=700&q=80&fit=crop&crop=center&auto=format"
+  ],
+  "featured": true,
+  "material": "Cuero vegetal curtido",
+  "colors": ["Miel", "Negro", "Cognac"],
+  "inStock": true
+}

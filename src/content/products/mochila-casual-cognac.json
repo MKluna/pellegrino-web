@@ -1,0 +1,15 @@
+{
+  "name": "Mochila Casual",
+  "category": "MOCHILAS",
+  "price": 89000,
+  "description": "Diseño casual con alma de cuero genuino. Perfil compacto con dos compartimentos y bolsillos laterales. La combinación de cuero y loneta de algodón le da un carácter urbano y duradero.",
+  "shortDesc": "Cuero genuino, perfil compacto urbano",
+  "images": [
+    "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=700&q=80&fit=crop&crop=top&auto=format",
+    "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=700&q=80&auto=format"
+  ],
+  "featured": false,
+  "material": "Cuero genuino y loneta",
+  "colors": ["Cognac", "Negro"],
+  "inStock": true
+}

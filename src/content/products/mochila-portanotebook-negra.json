@@ -1,0 +1,15 @@
+{
+  "name": "Mochila Notebook",
+  "category": "MOCHILAS",
+  "price": 110000,
+  "description": "Mochila ejecutiva en cuero vacuno tratado al agua. Espacio acolchado para notebook de hasta 15\", compartimento principal amplio y bolsillo frontal con organizador. Las correas acolchadas garantizan comodidad todo el día.",
+  "shortDesc": "Cuero tratado al agua, notebook hasta 15\"",
+  "images": [
+    "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=700&q=80&auto=format",
+    "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=700&q=80&fit=crop&crop=bottom&auto=format"
+  ],
+  "featured": true,
+  "material": "Cuero vacuno tratado",
+  "colors": ["Negro", "Marrón oscuro"],
+  "inStock": true
+}

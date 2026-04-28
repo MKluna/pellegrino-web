@@ -1,0 +1,15 @@
+{
+  "name": "Bolso Tote Cognac",
+  "category": "BOLSOS",
+  "price": 78000,
+  "description": "Diseño amplio y sofisticado en cuero curtido al vegetal. Ideal para el uso diario, con asas reforzadas y bolsillo interno con cierre. La tonalidad cognac intensifica su carácter con el paso del tiempo.",
+  "shortDesc": "Cuero vegetal, asas reforzadas",
+  "images": [
+    "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=700&q=80&auto=format",
+    "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=700&q=80&auto=format"
+  ],
+  "featured": false,
+  "material": "Cuero vegetal curtido",
+  "colors": ["Cognac", "Camel"],
+  "inStock": true
+}

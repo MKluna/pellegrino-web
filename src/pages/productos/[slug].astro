@@ -1,0 +1,132 @@
+---
+import Layout from '../../components/layout/Layout.astro';
+import Header from '../../components/layout/Header.astro';
+import Footer from '../../components/layout/Footer.astro';
+import AddToCartButton from '../../components/product/AddToCartButton';
+import ProductGallery from '../../components/product/ProductGallery';
+import ProductCard from '../../components/catalog/ProductCard.astro';
+import { loadProducts } from '../../data/loader';
+import { formatPrice } from '../../data/products';
+
+export async function getStaticPaths() {
+  const products = await loadProducts();
+  return products.map((p) => ({
+    params: { slug: p.slug },
+    props: { product: p },
+  }));
+}
+
+const { product } = Astro.props;
+
+const all = await loadProducts();
+const related = all
+  .filter((p) => p.category === product.category && p.slug !== product.slug)
+  .slice(0, 3);
+---
+<Layout
+  title={`${product.name} — PELLEGRINO`}
+  description={`${product.shortDesc}. ${product.description.slice(0, 120)}...`}
+  image={product.images[0]}
+  type="product"
+>
+  <Header />
+  <main class="pt-16 pb-24 md:pb-0">
+    <div class="max-w-7xl mx-auto px-6 py-14">
+
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-xs text-parchment/50 tracking-wide mb-10 flex-wrap">
+        <a href="/" class="hover:text-gold transition-colors duration-150">Inicio</a>
+        <span>/</span>
+        <a href="/catalogo" class="hover:text-gold transition-colors duration-150">Catálogo</a>
+        <span>/</span>
+        <a href={`/catalogo?categoria=${encodeURIComponent(product.category)}`} class="hover:text-gold transition-colors duration-150">
+          {product.category}
+        </a>
+        <span>/</span>
+        <span class="text-parchment">{product.name}</span>
+      </nav>
+
+      <!-- Product -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+
+        <!-- Gallery -->
+        <ProductGallery client:load images={product.images} alt={product.name} />
+
+        <!-- Info -->
+        <div class="lg:sticky lg:top-28 lg:self-start">
+          <p class="text-gold text-xs tracking-[0.3em] uppercase mb-3">{product.category}</p>
+          <h1 class="font-serif text-4xl md:text-5xl text-cream font-light leading-tight mb-4">
+            {product.name}
+          </h1>
+          <p class="font-serif text-2xl text-gold mb-6">{formatPrice(product.price)}</p>
+
+          <div class="w-12 h-px bg-smoke mb-6"></div>
+
+          <p class="text-parchment text-sm leading-relaxed font-light mb-8">
+            {product.description}
+          </p>
+
+          <!-- Metadata -->
+          <dl class="space-y-3 mb-8 text-sm">
+            <div class="flex gap-4">
+              <dt class="text-parchment/50 w-24 shrink-0">Material</dt>
+              <dd class="text-parchment">{product.material}</dd>
+            </div>
+            <div class="flex gap-4">
+              <dt class="text-parchment/50 w-24 shrink-0">Colores</dt>
+              <dd class="text-parchment">{product.colors.join(', ')}</dd>
+            </div>
+            <div class="flex gap-4">
+              <dt class="text-parchment/50 w-24 shrink-0">Disponibilidad</dt>
+              <dd class={product.inStock ? 'text-gold' : 'text-parchment/50'}>
+                {product.inStock ? 'En stock' : 'Sin stock'}
+              </dd>
+            </div>
+          </dl>
+
+          <!-- Desktop CTA (hidden on mobile, shown by sticky bar) -->
+          {product.inStock && (
+            <div class="hidden md:block">
+              <AddToCartButton client:load product={product} />
+            </div>
+          )}
+
+          <p class="text-xs text-parchment/40 mt-4 leading-relaxed text-center hidden md:block">
+            El pago y envío se coordinan por WhatsApp luego de confirmar tu pedido.
+          </p>
+        </div>
+      </div>
+
+      <!-- Related -->
+      {related.length > 0 && (
+        <section class="mt-24">
+          <div class="flex items-center gap-6 mb-10">
+            <div class="w-12 h-px bg-smoke"></div>
+            <p class="text-xs text-parchment/50 tracking-widest uppercase">También te puede interesar</p>
+            <div class="flex-1 h-px bg-smoke"></div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
+            {related.map((p) => (
+              <ProductCard product={p} />
+            ))}
+          </div>
+        </section>
+      )}
+    </div>
+  </main>
+
+  <!-- Sticky mobile CTA -->
+  {product.inStock && (
+    <div class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-charcoal/95 backdrop-blur-sm border-t border-smoke px-4 py-3 flex items-center gap-3">
+      <div class="flex-1 min-w-0">
+        <p class="text-cream text-sm font-light truncate">{product.name}</p>
+        <p class="text-gold text-sm font-serif">{formatPrice(product.price)}</p>
+      </div>
+      <div class="shrink-0">
+        <AddToCartButton client:load product={product} compact />
+      </div>
+    </div>
+  )}
+
+  <Footer />
+</Layout>

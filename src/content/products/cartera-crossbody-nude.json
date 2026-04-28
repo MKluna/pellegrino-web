@@ -1,0 +1,15 @@
+{
+  "name": "Cartera Crossbody",
+  "category": "CARTERAS",
+  "price": 65000,
+  "description": "Cartera de formato crossbody en cuero nappa suave al tacto. Correa regulable con mosquetón dorado y compartimento principal con cierre invisible. Perfecta para el día o la noche.",
+  "shortDesc": "Cuero nappa, correa regulable dorada",
+  "images": [
+    "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=700&q=80&auto=format",
+    "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=700&q=80&auto=format"
+  ],
+  "featured": true,
+  "material": "Cuero nappa",
+  "colors": ["Nude", "Negro", "Bordo"],
+  "inStock": true
+}
