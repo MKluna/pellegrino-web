@@ -5,14 +5,9 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 
-// GitHub Pages: reemplazá 'pellegrino-web' con el nombre exacto de tu repo
-// Si en el futuro usás dominio propio, eliminá la línea `base` y actualizá `site`
-const REPO_NAME = 'pellegrino-web';
-
 // https://astro.build/config
 export default defineConfig({
-  site: `https://pellegrino.com.ar`,
-  base: `/${REPO_NAME}`,
+  site: 'https://mkluna.github.io',
 
   vite: {
     plugins: [tailwindcss()]
